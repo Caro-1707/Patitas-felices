@@ -127,3 +127,6 @@ Route::get('/admin/reporte/mascotas', [MascotaController::class, 'reportePDF'])
 
 Route::get('admin/reportes/excel', [MascotaController::class,'exportarEstadisticas'])
     ->name('estadisticas.excel');
+
+Route::delete('/admin/solicitudes/{id}', [SolicitudController::class, 'destroy'])
+    ->name('solicitudes.destroy');

@@ -36,6 +36,7 @@
         <span>🚪</span> Cerrar sesión
     </button>
 </form>
+
   </aside>
 
   <!-- CONTENIDO -->

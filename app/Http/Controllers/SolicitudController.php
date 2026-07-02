@@ -92,4 +92,16 @@ public function rechazar($id)
         'Solicitud rechazada y correo enviado.'
     );
 }
+
+public function destroy($id)
+{
+    $solicitud = SolicitudAdopcion::findOrFail($id);
+
+    $solicitud->delete();
+
+    return redirect()->back()->with(
+        'success',
+        'Solicitud eliminada correctamente.'
+    );
+}
 }

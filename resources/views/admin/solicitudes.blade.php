@@ -131,8 +131,19 @@
                       <button type="submit" class="btn-rechazar">❌ Rechazar</button>
                     </form>
                   @else
+                  
+            <form action="{{ route('solicitudes.destroy', $solicitud->id) }}"
+                  method="POST"
+                  onsubmit="return confirm('¿Seguro que deseas eliminar esta solicitud?')">
+                  @csrf
+                  @method('DELETE')
+                <button type="submit" class="btn-eliminar">🗑️ Eliminar</button>
+            </form>
+
+                  </form>
                     <span class="sin-acciones">—</span>
                   @endif
+
                 </td>
 
               </tr>

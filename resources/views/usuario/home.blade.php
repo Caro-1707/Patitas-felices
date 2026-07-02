@@ -53,32 +53,22 @@
   <!-- CATEGORÍAS -->
   <section class="categorias">
     <div class="categorias-container">
-     
 
-    <a href="{{ route('home') }}" class="categoria-card">
+      <a href="{{ route('home') }}" class="categoria-card">
         <span class="cat-icon">🐾</span>
         Todas
-    </a>
+      </a>
 
-    @forelse($categorias as $categoria)
-
-        <a href="{{ route('categoria.filtrar', $categoria->id) }}"
-           class="categoria-card">
-
-            <span class="cat-icon">🏷️</span>
-            {{ $categoria->nombre }}
-
+      @forelse($categorias as $categoria)
+        <a href="{{ route('categoria.filtrar', $categoria->id) }}" class="categoria-card">
+          <span class="cat-icon">🏷️</span>
+          {{ $categoria->nombre }}
         </a>
+      @empty
+        <p class="empty-msg">No hay categorías registradas.</p>
+      @endforelse
 
-    @empty
-
-        <p class="empty-msg">
-            No hay categorías registradas.
-        </p>
-
-    @endforelse
-
-</div>
+    </div>
   </section>
 
   <!-- MASCOTAS -->
@@ -89,6 +79,7 @@
 
     <div class="mascotas-grid">
       @forelse($mascotas as $mascota)
+
         <div class="mascota-card">
 
           <div class="mascota-img">
@@ -113,12 +104,13 @@
 
             <p class="mascota-desc">{{ $mascota->descripcion }}</p>
 
-            <a href="{{ route('adopcion.create', $mascota->id) }}"
-             class="btn-adoptar">
-            Adoptar 🐾
+            <a href="{{ route('adopcion.create', $mascota->id) }}" class="btn-adoptar">
+              Adoptar 🐾
             </a>
+          </div>
 
         </div>
+
       @empty
         <p class="empty-msg">No hay mascotas disponibles.</p>
       @endforelse
